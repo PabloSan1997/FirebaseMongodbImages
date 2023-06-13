@@ -4,7 +4,7 @@ import  {ObjectSchema} from "joi";
 import {ImagenesReq} from "../mytypes";
 
 
-export function validatorHandler(schema:ObjectSchema<ImagenesReq>, property: "body"|"headers") {
+export function validatorHandler(schema:ObjectSchema<ImagenesReq | {_id:string}>, property: "body"|"headers") {
   return (req:Request, res:Response, next:NextFunction) => {
     const cuerpo = req[property];
     const { error } = schema.validate(cuerpo, { abortEarly: false });

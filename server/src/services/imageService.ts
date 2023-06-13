@@ -18,4 +18,13 @@ export class ServicioImage {
             throw boom.badRequest("No se puede agregar elemento");
         }
     }
+    async borrarId(_id:string):Promise<{id:string}>{
+        try {
+            const ver = await ModelImage.findByIdAndDelete(_id) as ImagenesRes;
+            const {id} = await ver.images;
+            return {id};
+        } catch (error) {
+            throw boom.badRequest("no se puedo eliminar dato");
+        }
+    }
 }
