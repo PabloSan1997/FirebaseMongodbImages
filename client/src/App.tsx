@@ -1,4 +1,5 @@
 import { Buscador } from "./components/Buscador"
+import { Contenedor } from "./components/Contenedor"
 import { Formulario } from "./components/Formulario"
 import { Header } from "./components/Header"
 
@@ -8,6 +9,7 @@ function App() {
       <Header/>
       <Formulario/>
       <Buscador/>
+      <Contenedor/>
     </>
   )
 }
