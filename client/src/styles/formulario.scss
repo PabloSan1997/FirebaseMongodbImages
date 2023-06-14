@@ -1,0 +1,62 @@
+form{
+    background: rgb(3,11,41);
+    background: linear-gradient(90deg, rgba(3,11,41,1) 0%, rgba(27,27,159,1) 100%); 
+    border: 2px solid rgb(4, 2, 41);
+    width: 40%;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: -41%;
+    transition:left 0.5s ease ;
+    &.activado{
+        left:0;
+    }
+    h2{
+        width: 100%;
+        color: white;
+        margin:10px auto;
+        text-align: center;
+    }
+    .entrada{
+        margin:2px auto;
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        font-size: 1.1rem;
+        color: white;
+        label{
+            margin: auto auto 8px 0;
+        }
+        #textoNombre{
+            padding: 2px;
+            border-radius: 8px;
+            background: rgb(221, 221, 240);
+            border:2px inset rgb(10, 10, 117);
+            font-size: 1.2rem;
+            outline: none;
+        }
+    }
+    .botonAgregar{
+        margin: auto;
+        width: 50%;
+        height: 60px;
+        background: rgb(4, 4, 63);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5rem;
+        border-radius: 10px;
+        border: 2px solid rgb(27, 55, 145);
+        color: white;
+        user-select: none;
+        cursor: pointer;
+        transition: background 0.2s ease;
+        &:hover{
+            background:rgb(5, 5, 85) ;
+        }
+    }
+    #agregar{
+        display: none;
+    }
+}
