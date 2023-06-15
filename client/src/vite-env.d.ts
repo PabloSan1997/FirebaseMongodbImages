@@ -46,5 +46,8 @@ type ValoresContexto = {
 	setId:{
 		(a:string):void
 	},
-	loading:boolean
+	loading:boolean,
+	setBuscar:{
+		(a:string):void
+	}
 }

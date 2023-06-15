@@ -17,6 +17,8 @@ export  function Provedor({children}:Hijo) {
     const [imagenes, setImagenes] = React.useState<ImagenRes[]>([]);
     const [id, setId] = React.useState("");
     const [loading, setLoading] = React.useState(true);
+    const [buscar, setBuscar] = React.useState<string>("");
+    let imagenesMostrar:ImagenRes[] = [];
     const generar =async (nombre:string, imagen:File)=>{
       const id = uuidv4();
       const url = await subirImagen(imagen, id);
@@ -62,8 +64,20 @@ export  function Provedor({children}:Hijo) {
         }
       } catch (error) {
         console.log(error);
+        window.location.reload();
       }
     })();},[id]);
+
+    if(!buscar){
+      imagenesMostrar=imagenes;
+    }else{
+      const imagenesClonar = [...imagenes];
+      imagenesMostrar = imagenesClonar.filter(elemento=>{
+        const buscarMayus = buscar.toLocaleUpperCase();
+        const tituloGrande = elemento.title.toLocaleUpperCase();
+        return tituloGrande.includes(buscarMayus);
+      });
+    }
 
   return (
     <Contexto.Provider value={
@@ -71,9 +85,10 @@ export  function Provedor({children}:Hijo) {
             mostrarMenu,
             setMostrarMenu,
             generar,
-            imagenes,
+            imagenes:imagenesMostrar,
             setId,
-            loading
+            loading,
+            setBuscar
         }
     } >
         {children}
