@@ -8,13 +8,9 @@ const PUERTO = process.env.PORT || 3006;
 const app: Express = express();
 
 
-let corsOptions = {
-    origin: '"https://imagenesguardar.onrender.com/"',
-    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-  }
 conectar();
 app.use(express.json());
-app.use(cors(corsOptions));
+app.use(cors());
 
 crearApi(app);
 app.use(boomHandle);
