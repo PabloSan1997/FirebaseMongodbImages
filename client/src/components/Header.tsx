@@ -4,7 +4,6 @@ import { Bars3Icon } from '@heroicons/react/24/solid'
 
 export  function Header() {
   const {setMostrarMenu, mostrarMenu} = ContextoImagenes();
-  console.log(mostrarMenu);
   const mostrar = () =>{
     setMostrarMenu(!mostrarMenu);
   }

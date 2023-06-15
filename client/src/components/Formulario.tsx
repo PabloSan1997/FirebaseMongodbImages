@@ -1,6 +1,7 @@
 import { ContextoImagenes } from "../context";
 import "../styles/formulario.scss";
 import React from 'react';
+import { generarImagenVista } from "../utilities/imagenMuestra";
 
 export function Formulario() {
     const { mostrarMenu, generar, setMostrarMenu } = ContextoImagenes();
@@ -9,14 +10,7 @@ export function Formulario() {
     const [vista, setVista] = React.useState("");
     const agregarImagen = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.files) {
-            const readfile = new FileReader();
-            readfile.readAsDataURL(e.target.files[0]);
-            readfile.addEventListener("load", (e)=>{
-                if(e.target?.result){
-                    setVista(e.target.result as string);
-                }
-            });
-            setImage(e.target.files[0]);
+            generarImagenVista(setImage, setVista, e);
         }
     }
     const subir = async (e: React.FormEvent<HTMLFormElement>) => {
