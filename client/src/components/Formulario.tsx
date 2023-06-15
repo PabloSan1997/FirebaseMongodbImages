@@ -43,7 +43,7 @@ export function Formulario() {
                 />
             </div>
             <label htmlFor="agregar" className="botonAgregar">Subir Imagen</label>
-            <input type="file" id="agregar" onChange={agregarImagen} />
+            <input type="file" id="agregar" accept="image/png,image/jpeg" onChange={agregarImagen} />
             <img
                 src={vista}
                 className="imagenMuestra" />
